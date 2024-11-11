@@ -10,11 +10,7 @@
     <div class="filter-search"></div>
     <div class="cars-list">
       <h2>Últimas reservas</h2>
-      <swiper-container loop="true" navigation="true" speed="1000" pagination="true" autoplay="true">
-        <swiper-slide><app-car-card></app-car-card></swiper-slide>
-        <swiper-slide><app-car-card></app-car-card></swiper-slide>
-        <swiper-slide><app-car-card></app-car-card></swiper-slide>
-      </swiper-container>
+      <app-car-carousel [data]="data"></app-car-carousel>
     </div>
   </div>
   <button>Acessar por QR code</button>

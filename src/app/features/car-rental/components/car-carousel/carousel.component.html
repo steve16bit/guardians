@@ -1,0 +1,15 @@
+<swiper-container autoplay="true">
+  @for (item of data; track $index) {
+  <swiper-slide>
+    <app-car-card
+      [image]="item.image"
+      [name]="item.name"
+      [year]="item.year"
+      [type]="item.type"
+      [engine]="item.engine"
+      [size]="item.size"
+    >
+    </app-car-card>
+  </swiper-slide>
+  }
+</swiper-container>
