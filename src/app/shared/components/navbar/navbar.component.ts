@@ -10,19 +10,19 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
 navbarList = [
   {
-    icon: "mdi mdi-test",
+    icon: "bx bx-home",
     text: "INÍCIO"
   },
   {
-    icon: "mdi mdi-test",
+    icon: "bx bx-calendar",
     text: "AGENDAMENTOS"
   },
   {
-    icon: "mdi mdi-test",
+    icon: "bx bx-phone",
     text: "CENTRAL"
   },
   {
-    icon: "mdi mdi-test",
+    icon: "bx bx-user",
     text: "PERFIL"
   },
 ]

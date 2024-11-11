@@ -1,4 +1,19 @@
 .navbar {
   display: flex;
   justify-content: space-around;
+
+  .navbar-item {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    i {
+      font-size: 1.2rem;
+    }
+  }
 }
