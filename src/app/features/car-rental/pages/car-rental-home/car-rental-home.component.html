@@ -1,7 +1,21 @@
-<p>Its working</p>
-
-<swiper-container loop="true" navigation="true" speed="1000" pagination="true" autoplay="true">
-  <swiper-slide>Slide 1</swiper-slide>
-  <swiper-slide>Slide 2</swiper-slide>
-  <swiper-slide>Slide 3</swiper-slide>
-</swiper-container>
+<div class="container">
+  <div class="user-wrapper">
+    <!-- background img here -->
+    <div class="user-img">
+      <img src="" alt="" />
+      <p>Olá, Marcos Silva</p>
+    </div>
+  </div>
+  <div class="cars-wrapper">
+    <div class="filter-search"></div>
+    <div class="cars-list">
+      <h2>Últimas reservas</h2>
+      <swiper-container loop="true" navigation="true" speed="1000" pagination="true" autoplay="true">
+        <swiper-slide><app-car-card></app-car-card></swiper-slide>
+        <swiper-slide><app-car-card></app-car-card></swiper-slide>
+        <swiper-slide><app-car-card></app-car-card></swiper-slide>
+      </swiper-container>
+    </div>
+  </div>
+  <button>Acessar por QR code</button>
+</div>

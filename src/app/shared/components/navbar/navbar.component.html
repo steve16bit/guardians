@@ -1,0 +1,8 @@
+<div class="navbar">
+  @for (item of navbarList; track $index) {
+    <div class="navbar-item">
+      <i [class]="item.icon"></i>
+      <p>{{item.text}}</p>
+    </div>
+  }
+</div>
