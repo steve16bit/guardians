@@ -1,17 +1,29 @@
 <div class="container">
   <div class="user-wrapper">
-    <!-- background img here -->
     <div class="user-img">
-      <img src="../../../../../assets/images/avatar-1.jpg" alt=""/>
-      <p>Olá, Marcos Silva</p>
+      <img src="../../../../../assets/images/user-placeholder.png" alt=""/>
     </div>
+    <p>Olá, Marcos Silva</p>
+  </div>
+  <div class="filters-wrapper">
+    <div class="input-icon">
+      <img src="../../../../../assets/svg/noun-magnifying-glass.svg" height="26px"/>
+      <input class="search" placeholder="Buscar carro"/>
+    </div>
+    
+    <!-- <button class="filter"><img src="../../../../../assets/svg/filter.svg"/>Filtrar</button> -->
+    <button>
+      <img src="../../../../../assets/svg/filter.svg"/>
+      Filtrar
+    </button>
   </div>
   <div class="cars-wrapper">
-    <div class="filter-search"></div>
     <div class="cars-list">
       <h2>Últimas reservas</h2>
       <app-car-carousel [data]="data"></app-car-carousel>
     </div>
   </div>
-  <button class=""><i class="bx bx-qr-scan"></i> por QR code</button>
+  <div class="qr-scan-wrapper">
+    <button class="qr-scan"><img src="../../../../../assets/svg/qr-scanner.svg"/> Acessar por QR code</button>
+  </div>
 </div>

@@ -1,6 +1,12 @@
 html {
   font-size: 62.5%;
-  color: #1D2B3A;
+  color: #1d2b3a;
+
+  input {
+    &::placeholder {
+      color: #1d2b3a;
+    }
+  }
 }
 
 * {
@@ -9,4 +15,16 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  outline: none;
+  border: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
