@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background: url('../../../../../assets/images/guardians-watermark.png') no-repeat right top, #1d2b3a;
+  height: 100vh;
+  padding: 0 50px;
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    color: white;
+
+    input {
+      width: 100%;
+      border-radius: 30px;
+      padding: 15px;
+    }
+
+    button {
+      width: 100%;
+      border-radius: 30px;
+      padding: 15px;
+      background-color: #c61d35;
+      color: white;
+      font-weight: 700;
+      margin-top: 20px;
+    }
+  }
+}

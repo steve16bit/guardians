@@ -9,6 +9,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
+  actualRoute = window.location.pathname;
 navbarList = [
   {
     icon: "bx bx-home",

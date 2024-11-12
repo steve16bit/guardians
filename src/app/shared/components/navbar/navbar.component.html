@@ -1,8 +1,9 @@
+@if(actualRoute != '/'){
 <div class="navbar">
   @for (item of navbarList; track $index) {
-    <a class="navbar-item" [routerLink]="[ '/path' ]">
-      <i [class]="item.icon"></i>
-      <p>{{item.text}}</p>
-    </a>
+  <a class="navbar-item" [routerLink]="[ '/path' ]">
+    <i [class]="item.icon"></i>
+    <p>{{item.text}}</p>
+  </a>
   }
-</div>
+</div>}
