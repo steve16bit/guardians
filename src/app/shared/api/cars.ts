@@ -1,5 +1,29 @@
 export const cars = [
   {
+    image: 'Imagem 32.png',
+    name: 'Mini Cooper',
+    year: '2021',
+    type: 'Hatch compacto',
+    engine: '1.8',
+    size: '5',
+  },
+  {
+    image: 'Imagem 16.png',
+    name: 'Jeep Compass',
+    year: '2021',
+    type: 'SUV Médio',
+    engine: '1.8',
+    size: '7',
+  },
+  {
+    image: 'Imagem 15.png',
+    name: 'Duster',
+    year: '2020',
+    type: 'SUV Compacta',
+    engine: '1.6',
+    size: '5',
+  },
+  {
     image: 'Imagem 31.png',
     name: 'Partner',
     year: '2016',

@@ -19,7 +19,10 @@
   </div>
   <div class="cars-wrapper">
     <div class="cars-list">
-      <h2>Últimas reservas</h2>
+      <div class="cars-header">
+        <h2>Últimas reservas</h2>
+        <p>{{data.length}} Alugueis feitos</p>
+      </div>
       <app-car-carousel [data]="data"></app-car-carousel>
     </div>
   </div>

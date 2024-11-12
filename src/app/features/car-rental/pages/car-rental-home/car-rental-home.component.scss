@@ -101,16 +101,28 @@
       flex-direction: column;
       justify-content: center;
 
-      h2 {
-        font-weight: 700;
-        font-size: 1.8rem;
-        padding: 0 20px;
+      .cars-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+
+        h2 {
+          font-weight: 700;
+          font-size: 1.8rem;
+        }
+
+        p {
+          font-weight: 400;
+          font-size: 1.2rem;
+        }
       }
     }
   }
 
   .qr-scan-wrapper {
     padding: 0 20px;
+    margin-top: 40px;
     .qr-scan {
       width: 100%;
       display: flex;

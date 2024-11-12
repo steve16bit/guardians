@@ -41,7 +41,21 @@ export class CarouselComponent {
       autoplay: true,
       slidesPerView: 1.7,
       centeredSlides: true,
-      spaceBetween: 60,
+      spaceBetween: 20,
+      breakpoints: {
+        398: {
+          slidesPerView: 1.7,
+          spaceBetween: 20,
+        },
+        454: {
+          slidesPerView: 1.7,
+          spaceBetween: 10,
+        },
+        430: {
+          slidesPerView: 1.7,
+          spaceBetween: 5,
+        },
+      },
     };
     Object.assign(swiperElemConstructor!, swiperOptions);
     this.swiperElement.set(swiperElemConstructor as SwiperContainer);
