@@ -47,13 +47,13 @@ export class CarouselComponent {
           slidesPerView: 1.7,
           spaceBetween: 20,
         },
-        454: {
-          slidesPerView: 1.7,
-          spaceBetween: 10,
-        },
         430: {
-          slidesPerView: 1.7,
+          slidesPerView: 1.8,
           spaceBetween: 5,
+        },
+        454: {
+          slidesPerView: 1.9,
+          spaceBetween: 10,
         },
       },
     };
