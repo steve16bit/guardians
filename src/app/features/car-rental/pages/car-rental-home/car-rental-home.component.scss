@@ -12,6 +12,10 @@
     align-items: center;
     padding: 60px;
 
+    @media screen and (max-width: 360px) {
+      padding: 30px;
+    }
+
     .user-img {
       width: 100px;
       height: 100px;
@@ -43,6 +47,10 @@
 
     position: relative;
     top: -16px;
+
+    @media screen and (max-width: 360px) {
+      gap: 10px;
+    }
 
     .input-icon {
       width: 100%;
@@ -138,6 +146,10 @@
       border-radius: 37px;
       font-weight: 400;
       font-size: 1.4rem;
+
+      @media screen and (max-width: 360px) {
+        padding: 15px 30px;
+      }
     }
   }
 }

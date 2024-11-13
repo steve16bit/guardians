@@ -30,3 +30,9 @@
     }
   }
 }
+
+.active-link {
+  font-weight: bold !important;
+  color: #C61D35 !important;
+  transition: all 0.4s ease-in-out;
+}

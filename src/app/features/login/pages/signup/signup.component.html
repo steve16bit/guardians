@@ -1,0 +1,14 @@
+<div class="container">
+  <img
+    src="../../../../../assets/svg/guardians-logo.svg"
+    alt="guardians-logo"
+  />
+  <form>
+    <input placeholder="Usuário" />
+    <input placeholder="E-mail" type="email" />
+    <input placeholder="Senha" type="password" />
+    <input placeholder="Confirmar senha" type="password" />
+    <button (click)="signUp($event)">CADASTRAR</button>
+  </form>
+  <p>Já possui um cadastro? <a [routerLink]="['/login']">Entre aqui!</a></p>
+</div>

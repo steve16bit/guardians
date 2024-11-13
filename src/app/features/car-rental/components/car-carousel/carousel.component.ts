@@ -43,6 +43,14 @@ export class CarouselComponent {
       centeredSlides: true,
       spaceBetween: 20,
       breakpoints: {
+        360: {
+          slidesPerView: 1.6,
+          spaceBetween: 20,
+        },
+        390: {
+          slidesPerView: 1.7,
+          spaceBetween: 20,
+        },
         398: {
           slidesPerView: 1.7,
           spaceBetween: 20,
