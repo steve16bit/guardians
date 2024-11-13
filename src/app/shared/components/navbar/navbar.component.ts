@@ -46,7 +46,8 @@ export class NavbarComponent {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationStart))
       .subscribe((res: NavigationStart) => {
-        if(res.url === '/login' || res.url === '/signup' || res.url === '/forgot') {
+        console.log('RES', res)
+        if(res.url === '/' || res.url === '/signup' || res.url === '/forgot') {
           this.showNavbar = false
         } else {
           this.showNavbar = true
