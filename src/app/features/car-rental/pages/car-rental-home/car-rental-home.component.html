@@ -8,14 +8,17 @@
   <div class="filters-wrapper">
     <div class="input-icon">
       <img src="../../../../../assets/svg/noun-magnifying-glass.svg" height="26px"/>
-      <input class="search" placeholder="Buscar carro"/>
+      <input class="search" placeholder="Buscar carro" (keyup)="handleSearch($event)"/>
     </div>
     
     <!-- <button class="filter"><img src="../../../../../assets/svg/filter.svg"/>Filtrar</button> -->
-    <button>
+     <a [routerLink]="['/filter']">
+      <button>
       <img src="../../../../../assets/svg/filter.svg"/>
       Filtrar
     </button>
+     </a>
+    
   </div>
   <div class="cars-wrapper">
     <div class="cars-list">

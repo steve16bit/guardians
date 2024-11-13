@@ -33,3 +33,44 @@ a {
   color: inherit;
   text-decoration: inherit;
 }
+
+//Editando label checkbox angular material
+.mat-internal-form-field>label {
+  font-size: 1.4rem !important;
+  font-weight: 400 !important;
+}
+
+//Editando checkbox angular material
+.mdc-checkbox__background {
+  border-radius: 4px !important;
+}
+
+.mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+  background-color: #ffffff !important;
+  border-color: #1D2B3A !important;
+
+  &::before{
+    content: " " !important;
+    position: absolute !important;
+    top: 3px !important;
+    left: 3px !important;
+    right: 3px !important;
+    bottom: 3px !important;
+    background-color: #C61D35 !important;
+    border-radius: 2px;
+  }
+}
+
+.mdc-checkbox__checkmark {
+  display: none !important;
+}
+
+//Editando accordion angular material
+.mat-expansion-panel-body {
+  padding: 15px 10px !important;
+  background: #FFFFFF !important;
+}
+
+.mat-expansion-indicator svg {
+  fill: #C61D35 !important;
+}
