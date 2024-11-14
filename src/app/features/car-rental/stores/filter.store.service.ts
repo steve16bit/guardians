@@ -1,33 +1,61 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import type { CarFilterOptions } from '../../../shared/types/rental-car/car-filter-options.type';
-import { cars } from '../../../shared/api/cars';
-import type { carCard } from '../../../shared/types/rental-car/car-card.type';
 import type { carFilter } from '../../../shared/types/rental-car/car-filter.type';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FilterStoreService {
   filters = new BehaviorSubject<CarFilterOptions>({
     engine: [{ text: '', value: '' }],
     size: [{ text: '', value: '' }],
-    type: [{ text: '', value: '' }]
+    type: [{ text: '', value: '' }],
   });
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   updateFilters(filterType: string, event: carFilter[]) {
-    console.log({filterType, event})
-    if(filterType === 'engine') this.filters.next({engine: event});
-    if(filterType === 'size') this.filters.next({size: event});
-    if(filterType === 'type')this.filters.next({type: event});
-  };
+    console.log('TESTEEEEEEEEEEEE', { filterType, event });
+    if (filterType === 'engine')
+      this.filters.next({
+        engine: event,
+        size: this.filters.value.size,
+        type: this.filters.value.type,
+      });
+    if (filterType === 'size')
+      this.filters.next({
+        size: event,
+        engine: this.filters.value.engine,
+        type: this.filters.value.type,
+      });
+    if (filterType === 'type')
+      this.filters.next({
+        type: event,
+        size: this.filters.value.size,
+        engine: this.filters.value.engine,
+      });
+  }
 
   applyFilters() {
-    this.filters
+    console.log('FILTERS', this.filters);
+    this.filters.subscribe((res) => {
+      console.log('RES', res);
+    });
+  }
+
+  removeFilters() {
+    this.filters.next({
+      engine: [{ text: '', value: '' }],
+      type: [{ text: '', value: '' }],
+      size: [{ text: '', value: '' }],
+    });
+  }
+
+  ngOnDestroy(): void {
+    // this.filters.next({});
+    this.filters.unsubscribe();
   }
 }

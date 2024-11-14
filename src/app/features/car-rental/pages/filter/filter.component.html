@@ -6,7 +6,7 @@
   <div class="actions">
     <div>CANCELAR</div>
     <div>FILTROS</div>
-    <div>LIMPAR</div>
+    <div (click)="removeFilters()">LIMPAR</div>
   </div>
   <mat-accordion multi="true">
     <mat-expansion-panel expanded="true">
@@ -15,7 +15,12 @@
       </mat-expansion-panel-header>
       <div class="types-wrapper">
         @for (item of types; track $index) {
-          <mat-checkbox class="example-margin" (change)="selectType(item, $index)">{{ item.text }}</mat-checkbox>
+        <mat-checkbox
+          [checked]="item.selected"
+          class="example-margin"
+          (change)="selectType(item, $index)"
+          >{{ item.text }}</mat-checkbox
+        >
         }
       </div>
     </mat-expansion-panel>
@@ -26,7 +31,13 @@
       </mat-expansion-panel-header>
       <div class="filter-items-wrapper">
         @for (item of engines; track $index) {
-        <div class="filter-item" [class]="{'selected': item?.selected}" (click)="selectEngine($event, $index)">Motor {{ item.text }}</div>
+        <div
+          class="filter-item"
+          [class]="{ selected: item?.selected }"
+          (click)="selectEngine(item, $index)"
+        >
+          Motor {{ item.text }}
+        </div>
         }
       </div>
     </mat-expansion-panel>
@@ -36,12 +47,18 @@
       </mat-expansion-panel-header>
       <div class="filter-items-wrapper">
         @for (item of sizes; track $index) {
-        <div class="filter-item" [class]="{'selected': item?.selected}" (click)="selectSize($event, $index)">{{ item.text }}</div>
+        <div
+          class="filter-item"
+          [class]="{ selected: item?.selected }"
+          (click)="selectSize(item, $index)"
+        >
+          {{ item.text }}
+        </div>
         }
       </div>
     </mat-expansion-panel>
   </mat-accordion>
   <div class="apply-filters">
-    <button>APLICAR FILTRO</button>
+    <button (click)="applyFilters()">APLICAR FILTRO</button>
   </div>
 </div>

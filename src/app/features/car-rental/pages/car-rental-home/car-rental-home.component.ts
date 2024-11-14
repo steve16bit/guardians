@@ -12,6 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { FilterStoreService } from '../../stores/filter.store.service';
+import type { CarFilterOptions } from '../../../../shared/types/rental-car/car-filter-options.type';
 
 @Component({
   selector: 'app-car-rental-home',
@@ -24,7 +26,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     CarCardComponent,
     CarouselComponent,
     RouterLink,
-    RouterOutlet
+    RouterOutlet,
   ],
   templateUrl: './car-rental-home.component.html',
   styleUrl: './car-rental-home.component.scss',
@@ -34,25 +36,49 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 export class CarRentalHomeComponent {
   data: carCard[] = cars;
   autoplayConfig = { delay: 3000, disableOnInteraction: false };
+  filtersData: CarFilterOptions = {
+    engine: [{ text: '', value: '' }],
+    size: [{ text: '', value: '' }],
+    type: [{ text: '', value: '' }],
+  };
+
+  constructor(private filterStoreService: FilterStoreService) {}
 
   ngOnInit(): void {
-    const engineFilter = this.data.filter((item) => ['1.8', '1.6'].includes(item.engine))
-    const nameFilter = this.data.filter((item) => ['Fiorino', 'Doblo'].includes(item.name))
-    const sizeFilter = this.data.filter((item) => ['7', '2'].includes(item.size))
-    const typeFilter = this.data.filter((item) => ['Utilitário leve', 'Minivan'].includes(item.type))
-    const yearFilter = this.data.filter((item) => ['1.8', '1.6'].includes(item.year))
+    this.filtersData = this.filterStoreService.filters.value;
 
-    
-
-    console.log(
-      // engineFilter.concat(nameFilter).concat(sizeFilter).concat(typeFilter).concat(yearFilter)
-      {engineFilter, nameFilter, sizeFilter, typeFilter, yearFilter}
-    );
+    if (
+      this.filtersData.engine &&
+      this.filtersData.size &&
+      this.filtersData.type &&
+      this.filtersData.engine?.length > 1 &&
+      this.filtersData.size.length > 1 &&
+      this.filtersData.type.length > 1
+    ) {
+      this.data.filter(
+        (item) =>
+          this.filtersData.engine &&
+          this.filtersData.engine.map((engine) =>
+            engine.value.includes(item.engine)
+          )
+      );
+      this.data.filter(
+        (item) =>
+          this.filtersData.type &&
+          this.filtersData.type.map((type) => type.value.includes(item.type))
+      );
+      this.data.filter(
+        (item) =>
+          this.filtersData.size &&
+          this.filtersData.size.map((size) => size.value.includes(item.size))
+      );
+    }
+    console.log('FILTROS', this.filterStoreService.filters.value);
   }
 
   handleSearch(event: Event) {
     let eventValue = (event.target as HTMLInputElement).value.toLowerCase();
-    console.log('eventValue',eventValue.length < 1);
+    console.log('eventValue', eventValue.length < 1);
 
     if (eventValue.length < 1) {
       this.data = cars;

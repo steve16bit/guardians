@@ -49,48 +49,52 @@ export class FilterComponent {
     { text: '7', value: '7' },
   ];
 
-  constructor(private filterStoreService: FilterStoreService){}
+  selectedEngines: carFilter[] = [];
+  selectedSizes: carFilter[] = [];
+  selectedTypes: carFilter[] = [];
 
-  selectEngine(event: Event, index: number) {
+  constructor(private filterStoreService: FilterStoreService) {}
+
+  applyFilters() {
+    this.filterStoreService.applyFilters();
+  }
+
+  removeFilters() {
+    this.filterStoreService.removeFilters();
+    
+    this.engines.filter((item) => item.selected === true).map((item) => item.selected = false);
+    this.types.filter((item) => item.selected === true).map((item) => item.selected = false);
+    this.sizes.filter((item) => item.selected === true).map((item) => item.selected = false);
+
+    this.selectedEngines = [];
+    this.selectedSizes = [];
+    this.selectedTypes = [];
+  }
+
+  selectEngine(event: carFilter, index: number) {
     if (this.engines[index].selected === true) {
       this.engines[index].selected = false;
       return;
     }
     this.engines[index].selected = true;
 
-    let selectedEngines: carFilter[] = [{
-      text: '',
-      value: '',
-      selected: false
-    }];
     
-    selectedEngines.push(this.engines[index]);
-
-    this.filterStoreService.updateFilters('engine', selectedEngines)
-
-    console.log('Event', event);
-    console.log('ENGINES', this.engines);
+    this.selectedEngines.push(event);
+    console.log('selectedEngines', this.selectedEngines);
+    this.filterStoreService.updateFilters('engine', this.selectedEngines);
   }
 
-  selectSize(event: Event, index: number) {
+  selectSize(event: carFilter, index: number) {
     if (this.sizes[index].selected === true) {
       this.sizes[index].selected = false;
       return;
     }
     this.sizes[index].selected = true;
 
-    let selectedSizes: carFilter[] = [{
-      text: '',
-      value: '',
-      selected: false
-    }];
     
-    selectedSizes.push(this.sizes[index]);
-
-    this.filterStoreService.updateFilters('size', selectedSizes)
-
-    console.log('Event', event);
-    console.log('sizes', this.sizes);
+    this.selectedSizes.push(event);
+    console.log('selectedSizes', this.selectedSizes);
+    this.filterStoreService.updateFilters('size', this.selectedSizes);
   }
 
   selectType(event: carFilter, index: number) {
@@ -100,17 +104,9 @@ export class FilterComponent {
     }
     this.types[index].selected = true;
 
-    let selectedTypes: carFilter[] = [{
-      text: '',
-      value: '',
-      selected: false
-    }];
     
-    selectedTypes.push(this.engines[index]);
-
-    this.filterStoreService.updateFilters('type', selectedTypes)
-
-    console.log('Event', event);
-    console.log('types', this.types);
+    this.selectedTypes.push(event);
+    console.log('selectedTypes', this.selectedTypes);
+    this.filterStoreService.updateFilters('type', this.selectedTypes);
   }
 }
