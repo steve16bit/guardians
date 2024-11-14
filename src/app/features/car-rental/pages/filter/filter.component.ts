@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import type { carFilter } from '../../../../shared/types/rental-car/car-filter.type';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import type { carFilter } from '../../../../shared/types/rental-car/car-filter.type';
+import { FilterStoreService } from '../../stores/filter.store.service';
 
 @Component({
   selector: 'app-filter',
@@ -48,12 +49,25 @@ export class FilterComponent {
     { text: '7', value: '7' },
   ];
 
+  constructor(private filterStoreService: FilterStoreService){}
+
   selectEngine(event: Event, index: number) {
     if (this.engines[index].selected === true) {
       this.engines[index].selected = false;
       return;
     }
     this.engines[index].selected = true;
+
+    let selectedEngines: carFilter[] = [{
+      text: '',
+      value: '',
+      selected: false
+    }];
+    
+    selectedEngines.push(this.engines[index]);
+
+    this.filterStoreService.updateFilters('engine', selectedEngines)
+
     console.log('Event', event);
     console.log('ENGINES', this.engines);
   }
@@ -64,7 +78,39 @@ export class FilterComponent {
       return;
     }
     this.sizes[index].selected = true;
+
+    let selectedSizes: carFilter[] = [{
+      text: '',
+      value: '',
+      selected: false
+    }];
+    
+    selectedSizes.push(this.sizes[index]);
+
+    this.filterStoreService.updateFilters('size', selectedSizes)
+
     console.log('Event', event);
     console.log('sizes', this.sizes);
+  }
+
+  selectType(event: carFilter, index: number) {
+    if (this.types[index].selected === true) {
+      this.types[index].selected = false;
+      return;
+    }
+    this.types[index].selected = true;
+
+    let selectedTypes: carFilter[] = [{
+      text: '',
+      value: '',
+      selected: false
+    }];
+    
+    selectedTypes.push(this.engines[index]);
+
+    this.filterStoreService.updateFilters('type', selectedTypes)
+
+    console.log('Event', event);
+    console.log('types', this.types);
   }
 }
