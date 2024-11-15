@@ -1,12 +1,15 @@
 .navbar {
   width: 100%;
-  position: fixed;
+  position: sticky;
   bottom: 0;
+  background-color: white;
+  z-index: 1;
 
   display: flex;
   justify-content: space-between;
 
   padding: 10px;
+  margin-top: 20px;
 
   box-shadow: 0px -6px 6px 0px #94949417;
 

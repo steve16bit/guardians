@@ -55,7 +55,6 @@ export class FilterStoreService {
   }
 
   ngOnDestroy(): void {
-    // this.filters.next({});
     this.filters.unsubscribe();
   }
 }

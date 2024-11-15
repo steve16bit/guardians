@@ -1,35 +1,46 @@
 <div class="container">
   <div class="user-wrapper">
     <div class="user-img">
-      <img src="../../../../../assets/images/user-placeholder.png" alt=""/>
+      <img src="../../../../../assets/images/user-placeholder.png" alt="" />
     </div>
     <p>Olá, Marcos Silva</p>
   </div>
   <div class="filters-wrapper">
     <div class="input-icon">
-      <img src="../../../../../assets/svg/noun-magnifying-glass.svg" height="26px"/>
-      <input class="search" placeholder="Buscar carro" (keyup)="handleSearch($event)"/>
+      <div class="icon">
+        <img
+          src="../../../../../assets/svg/noun-magnifying-glass.svg"
+          height="26px"
+        />
+      </div>
+      <input
+        class="search"
+        placeholder="Buscar carro"
+        (keyup)="handleSearch($event)"
+      />
     </div>
-    
-    <!-- <button class="filter"><img src="../../../../../assets/svg/filter.svg"/>Filtrar</button> -->
-     <a [routerLink]="['/filter']">
+
+    <a [routerLink]="['/filter']">
       <button>
-      <img src="../../../../../assets/svg/filter.svg"/>
-      Filtrar
-    </button>
-     </a>
-    
+        <img src="../../../../../assets/svg/filter.svg" />
+        Filtrar
+      </button>
+    </a>
   </div>
   <div class="cars-wrapper">
     <div class="cars-list">
       <div class="cars-header">
         <h2>Últimas reservas</h2>
-        <p>{{data.length}} Alugueis feitos</p>
+        <p>{{ data.length }} Alugueis feitos</p>
       </div>
-      <app-car-carousel [data]="isFiltered ? filteredData : data"></app-car-carousel>
+      <app-car-carousel
+        [data]="isFiltered ? filteredData : data"
+      ></app-car-carousel>
     </div>
   </div>
   <div class="qr-scan-wrapper">
-    <button class="qr-scan"><img src="../../../../../assets/svg/qr-scanner.svg"/> Acessar por QR code</button>
+    <button class="qr-scan">
+      <img src="../../../../../assets/svg/qr-scanner.svg" /> Acessar por QR code
+    </button>
   </div>
 </div>

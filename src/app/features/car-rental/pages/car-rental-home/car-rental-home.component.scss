@@ -42,7 +42,8 @@
     width: 100%;
     padding: 0 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     gap: 20px;
 
     position: relative;
@@ -54,21 +55,26 @@
 
     .input-icon {
       width: 100%;
-      img {
-        position: fixed;
-        margin: 10px;
-        height: 26px;
+      display: flex;
+      filter: drop-shadow(0px 3px 2px #00000029);
+      .icon {
+        width: fit-content;
+        height: fit-content;
+        padding: 9px 5px 9px 8px;
+
+        border-radius: 8px 0 0 8px;
+        background-color: #fff;
+        img {
+        }
       }
+
       input {
-        border-radius: 8px;
-        padding: 15px 15px 15px 40px;
+        width: 100%;
+        border-radius: 0 8px 8px 0;
+        padding: 15px 15px 15px 0px;
 
         display: flex;
         align-items: center;
-
-        webkit-box-shadow: 0px 3px 3px 0px #00000029;
-        -moz-box-shadow: 0px 3px 3px 0px #00000029;
-        box-shadow: 0px 3px 3px 0px #00000029;
 
         &::placeholder {
           font-size: 1.4rem;
@@ -90,9 +96,7 @@
       font-size: 1.6rem;
       font-weight: 400;
 
-      -webkit-box-shadow: 0px 3px 3px 0px #00000029;
-      -moz-box-shadow: 0px 3px 3px 0px #00000029;
-      box-shadow: 0px 3px 3px 0px #00000029;
+      filter: drop-shadow(0px 3px 2px #00000029);
 
       transition: all 0.3s ease-in-out;
 
