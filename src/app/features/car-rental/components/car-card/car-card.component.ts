@@ -14,8 +14,4 @@ export class CarCardComponent {
   @Input() type?: string = "";
   @Input() engine?: string = "";
   @Input() size?: string = "";
-
-  ngOnInit(): void {
-    console.log("CHEGUEI AQUI")
-  }
 }

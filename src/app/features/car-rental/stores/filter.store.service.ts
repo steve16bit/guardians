@@ -15,10 +15,11 @@ export class FilterStoreService {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   updateFilters(filterType: string, event: carFilter[]) {
-    console.log('TESTEEEEEEEEEEEE', { filterType, event });
     if (filterType === 'engine')
       this.filters.next({
         engine: event,
@@ -40,10 +41,9 @@ export class FilterStoreService {
   }
 
   applyFilters() {
-    console.log('FILTERS', this.filters);
     this.filters.subscribe((res) => {
-      console.log('RES', res);
-    });
+      console.log('teste', res)
+    })
   }
 
   removeFilters() {
