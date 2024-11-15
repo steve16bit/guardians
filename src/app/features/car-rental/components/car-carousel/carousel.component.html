@@ -1,5 +1,5 @@
 <swiper-container autoplay="false">
-  @for (item of data; track $index) {
+  @for (item of data; track $index) { @if (data.length === 0) {
   <swiper-slide>
     <app-car-card
       [image]="item.image"
@@ -11,5 +11,10 @@
     >
     </app-car-card>
   </swiper-slide>
+  } } @if (data.length > 0) {
+  <div class="not-found-filter">
+    Náo foi encontrado nenhum carro com essas especificações 😿😿
+    <a [routerLink]="['/filter']"><button>Voltar para os filtros</button></a>
+  </div>
   }
 </swiper-container>

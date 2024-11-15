@@ -1,0 +1,21 @@
+.not-found-filter {
+  height: 300px;
+  font-size: 2rem;
+  font-weight: 400;
+
+  padding: 0 20px;
+
+  text-align: center;
+
+  a {
+    button {
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: 400;
+      font-size: 1.6rem;
+      background-color: #c61d35;
+      color: white;
+    }
+  }
+}

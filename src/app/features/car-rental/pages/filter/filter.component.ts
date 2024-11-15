@@ -117,7 +117,7 @@ export class FilterComponent {
     this.selectedSizes = [];
     this.selectedTypes = []; 
 
-    this.router.navigate(['/home']);
+    // this.router.navigate(['/home']);
   }
 
   selectEngine(event: carFilter, index: number) {

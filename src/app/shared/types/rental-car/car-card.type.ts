@@ -5,4 +5,5 @@ export type carCard = {
   type: string,
   engine: string,
   size: string
+  price: string
 }

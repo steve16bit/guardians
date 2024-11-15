@@ -6,6 +6,7 @@ export const cars = [
     type: 'Hatch compacto',
     engine: '1.8',
     size: '5',
+    price: '495,97',
   },
   {
     image: 'Imagem 16.png',
@@ -14,6 +15,7 @@ export const cars = [
     type: 'SUV Médio',
     engine: '1.8',
     size: '7',
+    price: '246,80',
   },
   {
     image: 'Imagem 15.png',
@@ -22,6 +24,7 @@ export const cars = [
     type: 'SUV Compacta',
     engine: '1.6',
     size: '5',
+    price: '207,72',
   },
   {
     image: 'Imagem 31.png',
@@ -30,6 +33,7 @@ export const cars = [
     type: 'Utilitário',
     engine: '1.6',
     size: '2',
+    price: '386,857',
   },
   {
     image: 'Imagem 30.png',
@@ -38,6 +42,7 @@ export const cars = [
     type: 'Utilitário leve',
     engine: '1.6',
     size: '2',
+    price: '245,81',
   },
   {
     image: 'Imagem 29.png',
@@ -46,6 +51,7 @@ export const cars = [
     type: 'Minivan',
     engine: '1.8',
     size: '7',
+    price: '470,91',
   },
   {
     image: 'Imagem 25.png',
@@ -54,6 +60,7 @@ export const cars = [
     type: 'Picape média',
     engine: '1.6',
     size: '5',
+    price: '258,30',
   },
   {
     image: 'Imagem 9.png',
@@ -62,6 +69,7 @@ export const cars = [
     type: 'Sedan Compacto',
     engine: '1.0',
     size: '5',
+    price: '570,62',
   },
   {
     image: 'Imagem 27.png',
@@ -70,6 +78,7 @@ export const cars = [
     type: 'Sedan médio',
     engine: '1.4',
     size: '5',
+    price: '181,71',
   },
   {
     image: 'Imagem 28.png',
@@ -78,6 +87,7 @@ export const cars = [
     type: 'Sedan grande',
     engine: '2.0',
     size: '5',
+    price: '388,87',
   },
   {
     image: 'Imagem 23.png',
@@ -86,6 +96,7 @@ export const cars = [
     type: 'Picape leve-média',
     engine: '1.6',
     size: '5',
+    price: '221,39',
   },
   {
     image: 'Imagem 22.png',
@@ -94,6 +105,7 @@ export const cars = [
     type: 'Picape leve',
     engine: '1.4',
     size: '2',
+    price: '210,51',
   },
   {
     image: 'Imagem 20.png',
@@ -102,6 +114,7 @@ export const cars = [
     type: 'Coupé',
     engine: '2.0',
     size: '4',
+    price: '345,50',
   },
   {
     image: 'Imagem 19.png',
@@ -110,6 +123,7 @@ export const cars = [
     type: 'Crossover',
     engine: '1.6',
     size: '5',
+    price: '388,87',
   },
   {
     image: 'Imagem 18.png',
@@ -118,5 +132,6 @@ export const cars = [
     type: 'SUV Grande',
     engine: '2.0',
     size: '7',
+    price: '147,94',
   },
 ];

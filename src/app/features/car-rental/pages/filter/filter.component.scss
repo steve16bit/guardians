@@ -25,6 +25,15 @@
 
     font-weight: 400;
     font-size: 1.6rem;
+
+    div {
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: #c61d35;
+      }
+    }
   }
 
   .types-wrapper {
@@ -45,6 +54,8 @@
       border-radius: 8px;
 
       box-shadow: 0px 3px 3px 0px #00000029;
+
+      cursor: pointer;
     }
 
     .selected {

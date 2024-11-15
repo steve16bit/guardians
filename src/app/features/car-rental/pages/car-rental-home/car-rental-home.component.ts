@@ -35,8 +35,6 @@ import type { CarFilterOptions } from '../../../../shared/types/rental-car/car-f
 })
 export class CarRentalHomeComponent {
   data: carCard[] = cars;
-  autoplayConfig = { delay: 3000, disableOnInteraction: false };
-
   filteredData: carCard[] = [];
   isFiltered: boolean = false;
 
@@ -80,6 +78,8 @@ export class CarRentalHomeComponent {
         });
       }
     });
+
+    console.log('FILTEREDDATA', this.filteredData)
   }
 
   handleSearch(event: Event) {
