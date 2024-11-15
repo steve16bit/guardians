@@ -1,0 +1,12 @@
+<div class="header">
+  <i class="bx bx-phone"></i>
+  <p>Central</p>
+</div>
+<div class="container">
+  <button>Nova reserva</button>
+  <div class="wrapper">
+    @for (item of data; track $index) {
+    <app-scheduler-list-card [data]="item"></app-scheduler-list-card>
+    }
+  </div>
+</div>

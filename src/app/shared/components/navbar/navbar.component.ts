@@ -26,7 +26,7 @@ export class NavbarComponent {
     {
       icon: 'bx bx-calendar',
       text: 'AGENDAMENTOS',
-      path: '/schedule',
+      path: '/schedule/list',
     },
     {
       icon: 'bx bx-phone',
@@ -46,10 +46,15 @@ export class NavbarComponent {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationStart))
       .subscribe((res: NavigationStart) => {
-        if(res.url === '/' || res.url === '/signup' || res.url === '/forgot' || res.url === '/filter') {
-          this.showNavbar = false
+        if (
+          res.url === '/' ||
+          res.url === '/signup' ||
+          res.url === '/forgot' ||
+          res.url === '/filter'
+        ) {
+          this.showNavbar = false;
         } else {
-          this.showNavbar = true
+          this.showNavbar = true;
         }
       });
   }

@@ -1,0 +1,50 @@
+<div class="header">
+  <i class="bx bx-calendar"></i>
+  <p>Reserva</p>
+</div>
+<div class="container">
+  <a [routerLink]="['list']"><i class="bx bx-arrow-back"></i>Voltar</a>
+
+  <form action="" [formGroup]="schedule">
+    <div class="wrapper-input">
+      <label>Local de retirada</label>
+      <ng-select [items]="locations" bindLabel="text" bindValue="value" placeholder="Local de retirada"> </ng-select>
+    </div>
+    <div class="wrapper-input">
+      <label>Data retirada e Entrega</label>
+      <mat-form-field>
+        <mat-date-range-input  [rangePicker]="picker">
+          <input matStartDate formControlName="start" placeholder="Start date" />
+          <input matEndDate formControlName="end" placeholder="End date" />
+        </mat-date-range-input>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+  
+        @if (schedule.controls.start.hasError('matStartDateInvalid')) {
+        <mat-error>Invalid start date</mat-error>
+        } @if (schedule.controls.end.hasError('matEndDateInvalid')) {
+        <mat-error>Invalid end date</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="wrapper-hours">
+      <div class="wrapper-input">
+        <label>Hora retirada</label>
+        <ng-select [items]="avaibleHours" bindLabel="text" bindValue="value" placeholder="Hora"> </ng-select>
+      </div>
+  
+      <div class="wrapper-input">
+        <label>Hora entrega</label>
+        <ng-select [items]="avaibleHours" bindLabel="text" bindValue="value" placeholder="Hora"> </ng-select>
+      </div>
+    </div>
+    <div class="wrapper-carousel">
+      <h1>Escolha um carro </h1>
+      <app-car-carousel [data]="data"></app-car-carousel>
+    </div>
+    <button type="submit">Agendar</button>
+  </form>
+</div>

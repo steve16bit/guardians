@@ -13,7 +13,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { FilterStoreService } from '../../stores/filter.store.service';
-import type { CarFilterOptions } from '../../../../shared/types/rental-car/car-filter-options.type';
 
 @Component({
   selector: 'app-car-rental-home',
@@ -38,10 +37,11 @@ export class CarRentalHomeComponent {
   filteredData: carCard[] = [];
   isFiltered: boolean = false;
 
-  constructor(private filterStoreService: FilterStoreService) {}
+  constructor(
+    private filterStoreService: FilterStoreService,
+  ) {}
 
   ngOnInit(): void {
-
     this.filterStoreService.filters.subscribe((res) => {
       this.filteredData = cars;
       this.data = cars;
@@ -79,7 +79,7 @@ export class CarRentalHomeComponent {
       }
     });
 
-    console.log('FILTEREDDATA', this.filteredData)
+    console.log('FILTEREDDATA', this.filteredData);
   }
 
   handleSearch(event: Event) {
