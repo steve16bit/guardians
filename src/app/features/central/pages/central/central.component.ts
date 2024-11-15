@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './central.component.html',
-  styleUrl: './central.component.css'
+  styleUrl: './central.component.scss'
 })
 export class CentralComponent {
 
