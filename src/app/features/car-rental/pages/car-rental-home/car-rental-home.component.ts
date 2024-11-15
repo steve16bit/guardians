@@ -42,38 +42,31 @@ export class CarRentalHomeComponent {
     type: [{ text: '', value: '' }],
   };
 
-  constructor(private filterStoreService: FilterStoreService) {}
+  filteredData: carCard[] = [];
+  isFiltered: boolean = false;
+
+  constructor(private filterStoreService: FilterStoreService) { }
 
   ngOnInit(): void {
     this.filtersData = this.filterStoreService.filters.value;
 
-    if (
-      this.filtersData.engine &&
-      this.filtersData.size &&
-      this.filtersData.type &&
-      this.filtersData.engine?.length > 1 &&
-      this.filtersData.size.length > 1 &&
-      this.filtersData.type.length > 1
-    ) {
-      this.data.filter(
-        (item) =>
-          this.filtersData.engine &&
-          this.filtersData.engine.map((engine) =>
-            engine.value.includes(item.engine)
-          )
-      );
-      this.data.filter(
-        (item) =>
-          this.filtersData.type &&
-          this.filtersData.type.map((type) => type.value.includes(item.type))
-      );
-      this.data.filter(
-        (item) =>
-          this.filtersData.size &&
-          this.filtersData.size.map((size) => size.value.includes(item.size))
-      );
-    }
-    console.log('FILTROS', this.filterStoreService.filters.value);
+    this.filterStoreService.filters.subscribe((res) => {
+      this.filteredData = cars;
+      this.data = cars;
+      console.log('RES FILTER', res)
+      if (res.engine && res.type && res.size) {
+        this.isFiltered = true;
+        this.filteredData = this.data.filter((item, index) => {
+          const engineMatch = res.engine && res.engine[index]?.value !== '' ? item.engine.toLowerCase().includes(res.engine[index]?.value.toLowerCase()) : true;
+          console.log("item", item.engine.toLowerCase())
+          console.log("item", item.engine.toLowerCase())
+          const typeMatch = res.type && res.type[index]?.value !== '' ? item.type.toLowerCase().includes(res.type[index]?.value.toLowerCase()) : true;
+          const sizeMatch = res.size && res.size[index]?.value !== '' ? item.size.toLowerCase().includes(res.size[index]?.value.toLowerCase()) : true;
+          console.log('ITENS FILTRADOS', engineMatch && typeMatch && sizeMatch);
+          return engineMatch && typeMatch && sizeMatch; 
+        });
+      }
+    })
   }
 
   handleSearch(event: Event) {

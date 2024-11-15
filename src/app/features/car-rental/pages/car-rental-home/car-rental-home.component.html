@@ -26,7 +26,7 @@
         <h2>Últimas reservas</h2>
         <p>{{data.length}} Alugueis feitos</p>
       </div>
-      <app-car-carousel [data]="data"></app-car-carousel>
+      <app-car-carousel [data]="isFiltered ? filteredData : data"></app-car-carousel>
     </div>
   </div>
   <div class="qr-scan-wrapper">
