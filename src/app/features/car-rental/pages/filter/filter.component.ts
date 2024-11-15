@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { Router, RouterOutlet, type Route } from '@angular/router';
+
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+
 import type { carFilter } from '../../../../shared/types/rental-car/car-filter.type';
 import { FilterStoreService } from '../../stores/filter.store.service';
 
@@ -53,10 +56,11 @@ export class FilterComponent {
   selectedSizes: carFilter[] = [];
   selectedTypes: carFilter[] = [];
 
-  constructor(private filterStoreService: FilterStoreService) {}
+  constructor(private filterStoreService: FilterStoreService, private router: Router) {}
 
   applyFilters() {
     this.filterStoreService.applyFilters();
+    this.router.navigate(['/home'])
   }
 
   removeFilters() {
@@ -69,6 +73,8 @@ export class FilterComponent {
     this.selectedEngines = [];
     this.selectedSizes = [];
     this.selectedTypes = [];
+
+    this.router.navigate(['/home'])
   }
 
   selectEngine(event: carFilter, index: number) {

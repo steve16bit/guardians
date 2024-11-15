@@ -8,9 +8,9 @@ import type { carFilter } from '../../../shared/types/rental-car/car-filter.type
 })
 export class FilterStoreService {
   filters = new BehaviorSubject<CarFilterOptions>({
-    engine: [{ text: '', value: '' }],
-    size: [{ text: '', value: '' }],
-    type: [{ text: '', value: '' }],
+    engine: [],
+    size: [],
+    type: [],
   });
 
   constructor() {}
@@ -48,9 +48,9 @@ export class FilterStoreService {
 
   removeFilters() {
     this.filters.next({
-      engine: [{ text: '', value: '' }],
-      type: [{ text: '', value: '' }],
-      size: [{ text: '', value: '' }],
+      engine: [],
+      type: [],
+      size: [],
     });
   }
 

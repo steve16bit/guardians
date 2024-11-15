@@ -45,7 +45,7 @@ export class CarRentalHomeComponent {
   filteredData: carCard[] = [];
   isFiltered: boolean = false;
 
-  constructor(private filterStoreService: FilterStoreService) { }
+  constructor(private filterStoreService: FilterStoreService) {}
 
   ngOnInit(): void {
     this.filtersData = this.filterStoreService.filters.value;
@@ -53,23 +53,35 @@ export class CarRentalHomeComponent {
     this.filterStoreService.filters.subscribe((res) => {
       this.filteredData = cars;
       this.data = cars;
-      console.log('RES FILTER', res)
-      if (res.engine && res.type && res.size) {
+      console.log('RES FILTER', res);
+      if (res.engine && res.engine.length > 0 ||
+        res.type && res.type.length > 0 ||
+        res.size && res.size.length > 0
+      ) {
         this.isFiltered = true;
-        this.filteredData = this.data.filter((item, index) => {
-          const engineMatch = res.engine && res.engine[index]?.value !== '' ? item.engine.toLowerCase().includes(res.engine[index]?.value.toLowerCase()) : true;
-          console.log("item", item.engine.toLowerCase())
-          console.log("item", item.engine.toLowerCase())
-          const typeMatch = res.type && res.type[index]?.value !== '' ? item.type.toLowerCase().includes(res.type[index]?.value.toLowerCase()) : true;
-          const sizeMatch = res.size && res.size[index]?.value !== '' ? item.size.toLowerCase().includes(res.size[index]?.value.toLowerCase()) : true;
+        this.filteredData = this.data.filter((item) => {
+          const engineMatch = res.engine?.some(
+            (filter) => filter.value && item.engine.toLowerCase().includes(filter.value.toLowerCase())
+          ) || res.engine?.length === 0;
+  
+          const typeMatch = res.type?.some(
+            (filter) => filter.value && item.type.toLowerCase().includes(filter.value.toLowerCase())
+          ) || res.type?.length === 0;
+  
+          const sizeMatch = res.size?.some(
+            (filter) => filter.value && item.size.toLowerCase().includes(filter.value.toLowerCase())
+          ) || res.size?.length === 0;
+  
           console.log('ITENS FILTRADOS', engineMatch && typeMatch && sizeMatch);
-          return engineMatch && typeMatch && sizeMatch; 
+          return engineMatch && typeMatch && sizeMatch;
         });
       }
-    })
+    });
   }
 
   handleSearch(event: Event) {
+    this.isFiltered = false;
+    this.data = cars;
     let eventValue = (event.target as HTMLInputElement).value.toLowerCase();
     console.log('eventValue', eventValue.length < 1);
 
