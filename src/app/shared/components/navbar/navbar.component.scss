@@ -13,6 +13,9 @@
 
   box-shadow: 0px -6px 6px 0px #94949417;
 
+  @media screen and (min-height: 860px) {
+    position: fixed;
+  }
 
   .navbar-item {
     width: 100%;
