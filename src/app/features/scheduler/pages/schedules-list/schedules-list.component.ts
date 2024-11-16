@@ -12,5 +12,16 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './schedules-list.component.scss'
 })
 export class SchedulesListComponent {
-  @Input() data: carCard[] = cars;
+  @Input() data: any = cars;
+
+  ngOnInit(): void {
+    this.data = cars;
+    // let actualData = localStorage.getItem('scheduleData');
+
+    // if (actualData) {
+    //   this.data = JSON.parse(actualData);
+    // }
+
+    // console.log('THIS.DATA', this.data);
+  }
 }

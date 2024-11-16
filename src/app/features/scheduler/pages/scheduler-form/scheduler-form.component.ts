@@ -21,6 +21,7 @@ import { cars } from '../../../../shared/api/cars';
 import { SchedulerStoreService } from '../../../car-rental/stores/scheduler.store.service';
 import { avaibleHours } from '../../../../shared/api/hours';
 import { locations } from '../../../../shared/api/locations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scheduler-form',
@@ -45,25 +46,51 @@ import { locations } from '../../../../shared/api/locations';
 })
 export class SchedulerFormComponent {
   readonly schedule = new FormGroup({
-    location: new FormControl<string>(''),
+    location: new FormControl<string | null>(null),
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
-    takeoutHour: new FormControl<string>(''),
-    returnHour: new FormControl<string>(''),
-    car: new FormControl<number>(0),
+    takeoutHour: new FormControl<string | null>(null),
+    returnHour: new FormControl<string | null>(null)
   });
 
   data: carCard[] = cars;
   avaibleHours: { text: string, value: string }[] = avaibleHours;
   locations: { text: string, value: string }[] = locations;
+  scheduleData: string[] = [];
 
-  constructor(private schedulerStoreService: SchedulerStoreService) { }
+  constructor(private schedulerStoreService: SchedulerStoreService, private router: Router) { }
 
   ngOnInit(): void {
+    let actualData = localStorage.getItem('scheduleData');
+    actualData && this.scheduleData.push(actualData);
+
+    if (this.scheduleData) {
+      console.log('parsedData', JSON.parse(this.scheduleData[0]))
+    }
   };
 
   createSchedule() {
-    console.log(this.schedule);
-    console.log(this.schedulerStoreService.selectedCar.value)
+    let carData: any = {
+      location: this.schedule.value.location,
+      start: this.schedule.value.start,
+      end: this.schedule.value.end,
+      takeoutHour: this.schedule.value.takeoutHour,
+      returnHour: this.schedule.value.returnHour,
+      selectedCar: this.schedulerStoreService.selectedCar.value,
+      image: this.schedulerStoreService.selectedCar.value.image,
+      name: this.schedulerStoreService.selectedCar.value.name,
+      price: this.schedulerStoreService.selectedCar.value.price
+    };
+
+    console.log('car data', this.scheduleData);
+    console.log('schedule data', this.scheduleData);
+
+    this.scheduleData.push(carData);
+
+    console.log('ALL DATA', this.scheduleData)
+
+
+    localStorage.setItem('scheduleData', JSON.stringify(this.scheduleData))
+    // this.router.navigate(['schedule/list'])
   }
 }

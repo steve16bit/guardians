@@ -17,5 +17,9 @@ export class SchedulerListCardComponent {
     engine: '',
     size: '',
     price: '',
+    start: '',
+    end: '',
+    takeoutHour: '',
+    returnHour: ''
   };
 }

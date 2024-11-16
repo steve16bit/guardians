@@ -6,4 +6,8 @@ export type carCard = {
   engine: string,
   size: string
   price: string
+  start?: string,
+  end?: string
+  takeoutHour?: string,
+  returnHour?: string
 }
