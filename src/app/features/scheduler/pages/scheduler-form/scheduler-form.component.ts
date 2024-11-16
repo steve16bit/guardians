@@ -54,12 +54,16 @@ export class SchedulerFormComponent {
   });
 
   data: carCard[] = cars;
-  avaibleHours: {text: string, value: string}[] = avaibleHours;
-  locations: {text: string, value: string}[] = locations;
+  avaibleHours: { text: string, value: string }[] = avaibleHours;
+  locations: { text: string, value: string }[] = locations;
 
-  constructor(private schedulerStoreService: SchedulerStoreService) {}
+  constructor(private schedulerStoreService: SchedulerStoreService) { }
 
   ngOnInit(): void {
-    this.schedulerStoreService.setFormCard(true);
+  };
+
+  createSchedule() {
+    console.log(this.schedule);
+    console.log(this.schedulerStoreService.selectedCar.value)
   }
 }

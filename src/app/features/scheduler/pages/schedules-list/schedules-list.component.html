@@ -1,9 +1,9 @@
 <div class="header">
   <i class="bx bx-phone"></i>
-  <p>Central</p>
+  <p>Reservas</p>
 </div>
 <div class="container">
-  <button>Nova reserva</button>
+  <a [routerLink]="['/schedule']"><button>Nova reserva</button></a>
   <div class="wrapper">
     @for (item of data; track $index) {
     <app-scheduler-list-card [data]="item"></app-scheduler-list-card>

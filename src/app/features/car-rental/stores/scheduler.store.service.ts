@@ -5,9 +5,11 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class SchedulerStoreService {
-  isFormCard: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  selectedCar: BehaviorSubject<{ image?: string, name?: string, price?: string }> = new BehaviorSubject<{ image?: string, name?: string, price?: string }>({
+    image: '', name: '', price: ''
+  });
 
-  setFormCard(isFormCard: boolean) {
-    this.isFormCard.next(isFormCard)
+  setCar(image?: string, name?: string, price?: string) {
+    this.selectedCar.next({ image: image, name: name, price: price });
   }
 }

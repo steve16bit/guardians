@@ -8,7 +8,7 @@
   <form action="" [formGroup]="schedule">
     <div class="wrapper-input">
       <label>Local de retirada</label>
-      <ng-select [items]="locations" bindLabel="text" bindValue="value" placeholder="Local de retirada"> </ng-select>
+      <ng-select formControlName="location" [items]="locations" bindLabel="text" bindValue="value" placeholder="Local de retirada"> </ng-select>
     </div>
     <div class="wrapper-input">
       <label>Data retirada e Entrega</label>
@@ -33,18 +33,18 @@
     <div class="wrapper-hours">
       <div class="wrapper-input">
         <label>Hora retirada</label>
-        <ng-select [items]="avaibleHours" bindLabel="text" bindValue="value" placeholder="Hora"> </ng-select>
+        <ng-select formControlName="takeoutHour" [items]="avaibleHours" bindLabel="text" bindValue="value" placeholder="Hora"> </ng-select>
       </div>
   
       <div class="wrapper-input">
         <label>Hora entrega</label>
-        <ng-select [items]="avaibleHours" bindLabel="text" bindValue="value" placeholder="Hora"> </ng-select>
+        <ng-select formControlName="returnHour" [items]="avaibleHours" bindLabel="text" bindValue="value" placeholder="Hora"> </ng-select>
       </div>
     </div>
     <div class="wrapper-carousel">
       <h1>Escolha um carro </h1>
       <app-car-carousel [data]="data"></app-car-carousel>
     </div>
-    <button type="submit">Agendar</button>
+    <button type="submit" (click)="createSchedule()">Agendar</button>
   </form>
 </div>

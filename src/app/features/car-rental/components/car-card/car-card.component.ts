@@ -5,6 +5,8 @@ import {
   RouterModule,
   RouterOutlet,
 } from '@angular/router';
+import type { carCard } from '../../../../shared/types/rental-car/car-card.type';
+import { SchedulerStoreService } from '../../stores/scheduler.store.service';
 
 @Component({
   selector: 'app-car-card',
@@ -20,9 +22,22 @@ export class CarCardComponent {
   @Input() type?: string = '';
   @Input() engine?: string = '';
   @Input() size?: string = '';
+  @Input() price?: string = '';
 
-  constructor() {}
+  constructor(private schedulerStoreService: SchedulerStoreService) { }
 
   ngOnInit(): void {
+
+  }
+  
+  selectedCar(image?: string, name?: string, price?: string) {
+    console.log('Carro selecionado', {
+      image,
+      name,
+      price
+    }
+    );
+    
+    this.schedulerStoreService.setCar(image, name, price)
   }
 }
